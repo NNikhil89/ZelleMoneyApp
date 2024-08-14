@@ -22,7 +22,8 @@ async function getOnRampTransactions() {
     const session = await getServerSession(authOptions);
     const txns = await prisma.onRampTransaction.findMany({
         where: {
-            userId: Number(session?.user?.id)
+            userId: Number(session?.user?.id),
+            status: "Success"
         }
     });
     return txns.map(t => ({
@@ -48,7 +49,7 @@ export default async function() {
             <div>
                 <BalanceCard amount={balance.amount} locked={balance.locked} />
                 <div className="pt-4">
-                    <OnRampTransactions transactions={transactions} />
+                    <OnRampTransactions title="OnRamp Transaction" transactions={transactions} />
                 </div>
             </div>
         </div>

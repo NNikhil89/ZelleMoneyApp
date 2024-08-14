@@ -22,8 +22,13 @@ export function SendCard() {
                     }} />
                     <div className="pt-4 flex justify-center">
                         <Button onClick={async () => {
-                            await p2pTransfer(number, Number(amount) * 100)
+                           const resp = await p2pTransfer(number, Number(amount) * 100)
+                           alert(resp?.message)
                         }}>Send</Button>
+                    </div>
+                    <div className="pt-4 flex justify-center">
+                        <Button onClick={() => {alert('hi')
+                        }}>Send1</Button>
                     </div>
                 </div>
             </Card>
