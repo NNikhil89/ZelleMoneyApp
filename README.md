@@ -1,20 +1,20 @@
 - Clone the repo
 
 ```jsx
-git clone https://github.com/100xdevs-cohort-2/week-17-final-code
+git clone https://github.com/NNikhil89/ZelleMoneyApp.git
 ```
 
 - npm install
-- Run postgres either locally or on the cloud (neon.tech)
+- Run postgres either locally or on the docker using DATABASE_URL
 
-```jsx
-docker run  -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+```jsx use the docker run command if connecting to Postgres using docker with the appropriate password
+docker run  -e POSTGRES_PASSWORD=secretpassword -d -p 5432:5432 postgres
 ```
 
-- Copy over all .env.example files to .env
-- Update .env files everywhere with the right db url
-- Go to `packages/db`
+- Rename .env.example files to .env and give the valid Database url
+
+- Navigate to `packages/db` and run the below commands to create database with seed values
     - npx prisma migrate dev
     - npx prisma db seed
-- Go to `apps/user-app` , run `npm run dev`
-- Try logging in using phone - 1111111111 , password - alice (See `seed.ts`)
+- After DB creation run the app from command prompt by navigating to `apps/user-app` and then running the command `npm run dev`
+- Try logging in using mobile number 1234567890 , password - tom
